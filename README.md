@@ -1,6 +1,6 @@
 # Quick Volume
 
-A lightweight, ad-free volume replacement app for **Android 8.0 and above**—built for phones with broken physical volume buttons and designed for **~0% idle battery** using a 100% event-driven architecture.
+A lightweight, ad-free volume replacement app for **Android 8.0 and above** built for phones with broken physical volume buttons and designed for **~0% idle battery** using a 100% event-driven architecture.
 
 ## Why This Exists
 When physical volume keys stop working, most Play Store volume apps are bloated, ad-heavy, or drain battery running background services. **Quick Volume** solves that with clean native controls right where you need them.
