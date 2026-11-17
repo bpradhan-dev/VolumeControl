@@ -1,0 +1,29 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+    <!-- Minimal horizontal slider track -->
+    <path
+        android:fillColor="#475569"
+        android:pathData="M28,50 h52 a4,4 0 0 1 4,4 v0 a4,4 0 0 1 -4,4 h-52 a4,4 0 0 1 -4,-4 v0 a4,4 0 0 1 4,-4 z" />
+    <!-- Active filled slider portion -->
+    <path
+        android:fillColor="#38BDF8"
+        android:pathData="M28,50 h30 a4,4 0 0 1 0,8 h-30 a4,4 0 0 1 -4,-4 v0 a4,4 0 0 1 4,-4 z" />
+    <!-- Vertical pill thumb -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M58,38 h4 a3,3 0 0 1 3,3 v26 a3,3 0 0 1 -3,3 h-4 a3,3 0 0 1 -3,-3 v-26 a3,3 0 0 1 3,-3 z" />
+    <!-- Subtle sound wave arc above -->
+    <path
+        android:strokeColor="#38BDF8"
+        android:strokeWidth="3.2"
+        android:strokeLineCap="round"
+        android:pathData="M42,33 Q54,24 66,33" />
+    <path
+        android:strokeColor="#94A3B8"
+        android:strokeWidth="2.8"
+        android:strokeLineCap="round"
+        android:pathData="M47,76 Q54,81 61,76" />
+</vector>

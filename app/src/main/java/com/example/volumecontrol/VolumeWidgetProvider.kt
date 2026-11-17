@@ -18,9 +18,20 @@ class VolumeWidgetProvider : AppWidgetProvider() {
     }
 
     companion object {
+        private val mediaSegIds = intArrayOf(
+            R.id.wMediaSeg0, R.id.wMediaSeg1, R.id.wMediaSeg2, R.id.wMediaSeg3, R.id.wMediaSeg4
+        )
+        private val callSegIds = intArrayOf(
+            R.id.wCallSeg0, R.id.wCallSeg1, R.id.wCallSeg2, R.id.wCallSeg3, R.id.wCallSeg4
+        )
+        private val ringSegIds = intArrayOf(
+            R.id.wRingSeg0, R.id.wRingSeg1, R.id.wRingSeg2, R.id.wRingSeg3, R.id.wRingSeg4
+        )
+
         fun updateAllWidgets(context: Context) {
             val manager = AppWidgetManager.getInstance(context)
             val ids = manager.getAppWidgetIds(ComponentName(context, VolumeWidgetProvider::class.java))
+            if (ids.isEmpty()) return
             for (id in ids) {
                 updateSingleWidget(context, manager, id)
             }
@@ -29,36 +40,60 @@ class VolumeWidgetProvider : AppWidgetProvider() {
         private fun updateSingleWidget(context: Context, manager: AppWidgetManager, widgetId: Int) {
             val mVol = VolumeHelper.getVolume(context, AudioManager.STREAM_MUSIC)
             val mMax = VolumeHelper.getMaxVolume(context, AudioManager.STREAM_MUSIC)
+            val mLit = VolumeHelper.filledSegments(context, AudioManager.STREAM_MUSIC)
+
             val cVol = VolumeHelper.getVolume(context, AudioManager.STREAM_VOICE_CALL)
             val cMax = VolumeHelper.getMaxVolume(context, AudioManager.STREAM_VOICE_CALL)
+            val cLit = VolumeHelper.filledSegments(context, AudioManager.STREAM_VOICE_CALL)
+
             val rVol = VolumeHelper.getVolume(context, AudioManager.STREAM_RING)
             val rMax = VolumeHelper.getMaxVolume(context, AudioManager.STREAM_RING)
+            val rLit = VolumeHelper.filledSegments(context, AudioManager.STREAM_RING)
+
             val mode = VolumeHelper.ringerModeLabel(VolumeHelper.getRingerMode(context))
 
             val views = RemoteViews(context.packageName, R.layout.widget_volume).apply {
-                setTextViewText(R.id.wTvMedia, "Media: $mVol / $mMax")
-                setTextViewText(R.id.wTvCall, "Call: $cVol / $cMax")
-                setTextViewText(R.id.wTvRing, "Ring: $rVol / $rMax")
+                setTextViewText(R.id.wTvMedia, "Media $mVol/$mMax")
+                setTextViewText(R.id.wTvCall, "Call $cVol/$cMax")
+                setTextViewText(R.id.wTvRing, "Ring $rVol/$rMax")
                 setTextViewText(R.id.wBtnMode, mode)
 
-                setOnClickPendingIntent(R.id.wBtnMediaDown, stepIntent(context, 11, AudioManager.STREAM_MUSIC, -1))
-                setOnClickPendingIntent(R.id.wBtnMediaUp, stepIntent(context, 12, AudioManager.STREAM_MUSIC, +1))
-                setOnClickPendingIntent(R.id.wBtnCallDown, stepIntent(context, 13, AudioManager.STREAM_VOICE_CALL, -1))
-                setOnClickPendingIntent(R.id.wBtnCallUp, stepIntent(context, 14, AudioManager.STREAM_VOICE_CALL, +1))
-                setOnClickPendingIntent(R.id.wBtnRingDown, stepIntent(context, 15, AudioManager.STREAM_RING, -1))
-                setOnClickPendingIntent(R.id.wBtnRingUp, stepIntent(context, 16, AudioManager.STREAM_RING, +1))
-                setOnClickPendingIntent(R.id.wBtnMode, modeIntent(context, 17))
-                setOnClickPendingIntent(R.id.wBtnPanel, panelIntent(context, 18))
+                bindSegments(this, context, mediaSegIds, 300, AudioManager.STREAM_MUSIC, mLit)
+                bindSegments(this, context, callSegIds, 310, AudioManager.STREAM_VOICE_CALL, cLit)
+                bindSegments(this, context, ringSegIds, 320, AudioManager.STREAM_RING, rLit)
+
+                setOnClickPendingIntent(R.id.wBtnMode, modeIntent(context, 390))
+                setOnClickPendingIntent(R.id.wBtnPanel, panelIntent(context, 391))
             }
 
             manager.updateAppWidget(widgetId, views)
         }
 
-        private fun stepIntent(context: Context, reqCode: Int, stream: Int, delta: Int): PendingIntent {
+        private fun bindSegments(
+            views: RemoteViews,
+            context: Context,
+            segIds: IntArray,
+            baseReqCode: Int,
+            stream: Int,
+            litCount: Int
+        ) {
+            for (i in 0 until 5) {
+                views.setImageViewResource(
+                    segIds[i],
+                    if (i < litCount) R.drawable.seg_active else R.drawable.seg_inactive
+                )
+                views.setOnClickPendingIntent(
+                    segIds[i],
+                    segmentIntent(context, baseReqCode + i, stream, i)
+                )
+            }
+        }
+
+        private fun segmentIntent(context: Context, reqCode: Int, stream: Int, segment: Int): PendingIntent {
             val intent = Intent(context, VolumeActionReceiver::class.java).apply {
-                action = VolumeActionReceiver.ACTION_STEP_VOLUME
+                action = VolumeActionReceiver.ACTION_SET_SEGMENT
                 putExtra(VolumeActionReceiver.EXTRA_STREAM, stream)
-                putExtra(VolumeActionReceiver.EXTRA_DELTA, delta)
+                putExtra(VolumeActionReceiver.EXTRA_SEGMENT, segment)
             }
             return PendingIntent.getBroadcast(
                 context, reqCode, intent,

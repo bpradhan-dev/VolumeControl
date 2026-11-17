@@ -1,0 +1,6 @@
+<resources>
+    <color name="notif_accent">@android:color/system_accent1_600</color>
+    <color name="notif_btn_bg">@android:color/system_accent1_100</color>
+    <color name="notif_btn_fg">@android:color/system_accent1_900</color>
+    <color name="notif_track_bg">#33808080</color>
+</resources>

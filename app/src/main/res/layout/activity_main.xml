@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/mainRoot"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:clipToPadding="false"
     android:padding="16dp">
 
     <LinearLayout
@@ -13,7 +16,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Quick Volume"
-            android:textSize="24sp"
+            android:textSize="26sp"
             android:textStyle="bold" />
 
         <TextView
@@ -21,13 +24,12 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="16dp"
             android:alpha="0.7"
-            android:text="Lightweight volume replacement (0% idle drain)" />
+            android:text="v2.0 • Dynamic colors &amp; ~0% idle battery" />
 
-        <!-- Sound Mode Row -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
+            android:layout_marginBottom="14dp"
             android:orientation="horizontal">
 
             <Button
@@ -57,27 +59,111 @@
                 android:text="Silent" />
         </LinearLayout>
 
-        <!-- Container where our 5 volume sliders are added cleanly -->
         <LinearLayout
             android:id="@+id/slidersContainer"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical" />
 
-        <!-- Notification & Permissions -->
         <com.google.android.material.materialswitch.MaterialSwitch
             android:id="@+id/switchNotification"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
+            android:layout_marginTop="8dp"
             android:text="Show Notification Panel Controls" />
+
+        <com.google.android.material.materialswitch.MaterialSwitch
+            android:id="@+id/switchAutoRestore"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Auto-restore notification if swiped away" />
+
+        <!-- Customizable Notification Items -->
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cardNotifChoices"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="0dp"
+            app:strokeWidth="1dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="12dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="4dp"
+                    android:text="Choose what stays in Notification"
+                    android:textSize="13sp"
+                    android:textStyle="bold" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <com.google.android.material.checkbox.MaterialCheckBox
+                        android:id="@+id/cbNotifMedia"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Media" />
+
+                    <com.google.android.material.checkbox.MaterialCheckBox
+                        android:id="@+id/cbNotifCall"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Call" />
+
+                    <com.google.android.material.checkbox.MaterialCheckBox
+                        android:id="@+id/cbNotifRing"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Ring" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <com.google.android.material.checkbox.MaterialCheckBox
+                        android:id="@+id/cbNotifNotif"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Notif" />
+
+                    <com.google.android.material.checkbox.MaterialCheckBox
+                        android:id="@+id/cbNotifAlarm"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Alarm" />
+
+                    <com.google.android.material.checkbox.MaterialCheckBox
+                        android:id="@+id/cbNotifMode"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Mode" />
+                </LinearLayout>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
 
         <Button
             android:id="@+id/btnDndAccess"
             style="?attr/materialButtonOutlinedStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="10dp"
             android:text="Allow Do Not Disturb Access (for Silent mode)" />
 
         <Button
@@ -85,7 +171,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:text="Test Floating Quick Panel" />
+            android:text="Open Floating Quick Panel" />
 
         <Button
             android:id="@+id/btnSystemUi"

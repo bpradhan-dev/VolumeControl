@@ -4,9 +4,8 @@
     android:layout_height="match_parent"
     android:background="@drawable/bg_widget"
     android:orientation="vertical"
-    android:padding="10dp">
+    android:padding="12dp">
 
-    <!-- Top bar: Mode + All Sliders -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -18,7 +17,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Volume"
+            android:text="Quick Volume"
             android:textColor="#FFFFFF"
             android:textSize="13sp"
             android:textStyle="bold" />
@@ -26,7 +25,7 @@
         <Button
             android:id="@+id/wBtnMode"
             android:layout_width="wrap_content"
-            android:layout_height="30dp"
+            android:layout_height="28dp"
             android:layout_marginEnd="6dp"
             android:background="@drawable/bg_btn"
             android:paddingHorizontal="10dp"
@@ -38,7 +37,7 @@
         <Button
             android:id="@+id/wBtnPanel"
             android:layout_width="wrap_content"
-            android:layout_height="30dp"
+            android:layout_height="28dp"
             android:background="@drawable/bg_btn"
             android:paddingHorizontal="10dp"
             android:text="All"
@@ -47,7 +46,7 @@
             android:textSize="11sp" />
     </LinearLayout>
 
-    <!-- Media Row -->
+    <!-- Media Bar -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -57,34 +56,20 @@
 
         <TextView
             android:id="@+id/wTvMedia"
-            android:layout_width="0dp"
+            android:layout_width="80dp"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Media: 5/15"
+            android:text="Media 5/15"
             android:textColor="#E0E0E0"
-            android:textSize="12sp" />
+            android:textSize="11sp" />
 
-        <Button
-            android:id="@+id/wBtnMediaDown"
-            android:layout_width="44dp"
-            android:layout_height="32dp"
-            android:layout_marginEnd="6dp"
-            android:background="@drawable/bg_btn"
-            android:text="-"
-            android:textColor="#FFFFFF"
-            android:textSize="16sp" />
-
-        <Button
-            android:id="@+id/wBtnMediaUp"
-            android:layout_width="44dp"
-            android:layout_height="32dp"
-            android:background="@drawable/bg_btn"
-            android:text="+"
-            android:textColor="#FFFFFF"
-            android:textSize="16sp" />
+        <ImageView android:id="@+id/wMediaSeg0" android:layout_width="0dp" android:layout_height="16dp" android:layout_weight="1" android:layout_marginEnd="4dp" android:scaleType="fitXY" android:src="@drawable/seg_active" />
+        <ImageView android:id="@+id/wMediaSeg1" android:layout_width="0dp" android:layout_height="16dp" android:layout_weight="1" android:layout_marginEnd="4dp" android:scaleType="fitXY" android:src="@drawable/seg_active" />
+        <ImageView android:id="@+id/wMediaSeg2" android:layout_width="0dp" android:layout_height="16dp" android:layout_weight="1" android:layout_marginEnd="4dp" android:scaleType="fitXY" android:src="@drawable/seg_inactive" />
+        <ImageView android:id="@+id/wMediaSeg3" android:layout_width="0dp" android:layout_height="16dp" android:layout_weight="1" android:layout_marginEnd="4dp" android:scaleType="fitXY" android:src="@drawable/seg_inactive" />
+        <ImageView android:id="@+id/wMediaSeg4" android:layout_width="0dp" android:layout_height="16dp" android:layout_weight="1" android:scaleType="fitXY" android:src="@drawable/seg_inactive" />
     </LinearLayout>
 
-    <!-- Call Row -->
+    <!-- Call Bar -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -94,34 +79,20 @@
 
         <TextView
             android:id="@+id/wTvCall"
-            android:layout_width="0dp"
+            android:layout_width="80dp"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Call: 4/7"
+            android:text="Call 4/7"
             android:textColor="#E0E0E0"
-            android:textSize="12sp" />
+            android:textSize="11sp" />
 
-        <Button
-            android:id="@+id/wBtnCallDown"
-            android:layout_width="44dp"
-            android:layout_height="32dp"
-            android:layout_marginEnd="6dp"
-            android:background="@drawable/bg_btn"
-            android:text="-"
-            android:textColor="#FFFFFF"
-            android:textSize="16sp" />
-
-        <Button
-            android:id="@+id/wBtnCallUp"
-            android:layout_width="44dp"
-            android:layout_height="32dp"
-            android:background="@drawable/bg_btn"
-            android:text="+"
-            android:textColor="#FFFFFF"
-            android:textSize="16sp" />
+        <ImageView android:id="@+id/wCallSeg0" android:layout_width="0dp" android:layout_height="16dp" android:layout_weight="1" android:layout_marginEnd="4dp" android:scaleType="fitXY" android:src="@drawable/seg_active" />
+        <ImageView android:id="@+id/wCallSeg1" android:layout_width="0dp" android:layout_height="16dp" android:layout_weight="1" android:layout_marginEnd="4dp" android:scaleType="fitXY" android:src="@drawable/seg_active" />
+        <ImageView android:id="@+id/wCallSeg2" android:layout_width="0dp" android:layout_height="16dp" android:layout_weight="1" android:layout_marginEnd="4dp" android:scaleType="fitXY" android:src="@drawable/seg_active" />
+        <ImageView android:id="@+id/wCallSeg3" android:layout_width="0dp" android:layout_height="16dp" android:layout_weight="1" android:layout_marginEnd="4dp" android:scaleType="fitXY" android:src="@drawable/seg_inactive" />
+        <ImageView android:id="@+id/wCallSeg4" android:layout_width="0dp" android:layout_height="16dp" android:layout_weight="1" android:scaleType="fitXY" android:src="@drawable/seg_inactive" />
     </LinearLayout>
 
-    <!-- Ringtone Row -->
+    <!-- Ringtone Bar -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -131,31 +102,17 @@
 
         <TextView
             android:id="@+id/wTvRing"
-            android:layout_width="0dp"
+            android:layout_width="80dp"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Ring: 5/7"
+            android:text="Ring 5/7"
             android:textColor="#E0E0E0"
-            android:textSize="12sp" />
+            android:textSize="11sp" />
 
-        <Button
-            android:id="@+id/wBtnRingDown"
-            android:layout_width="44dp"
-            android:layout_height="32dp"
-            android:layout_marginEnd="6dp"
-            android:background="@drawable/bg_btn"
-            android:text="-"
-            android:textColor="#FFFFFF"
-            android:textSize="16sp" />
-
-        <Button
-            android:id="@+id/wBtnRingUp"
-            android:layout_width="44dp"
-            android:layout_height="32dp"
-            android:background="@drawable/bg_btn"
-            android:text="+"
-            android:textColor="#FFFFFF"
-            android:textSize="16sp" />
+        <ImageView android:id="@+id/wRingSeg0" android:layout_width="0dp" android:layout_height="16dp" android:layout_weight="1" android:layout_marginEnd="4dp" android:scaleType="fitXY" android:src="@drawable/seg_active" />
+        <ImageView android:id="@+id/wRingSeg1" android:layout_width="0dp" android:layout_height="16dp" android:layout_weight="1" android:layout_marginEnd="4dp" android:scaleType="fitXY" android:src="@drawable/seg_active" />
+        <ImageView android:id="@+id/wRingSeg2" android:layout_width="0dp" android:layout_height="16dp" android:layout_weight="1" android:layout_marginEnd="4dp" android:scaleType="fitXY" android:src="@drawable/seg_active" />
+        <ImageView android:id="@+id/wRingSeg3" android:layout_width="0dp" android:layout_height="16dp" android:layout_weight="1" android:layout_marginEnd="4dp" android:scaleType="fitXY" android:src="@drawable/seg_inactive" />
+        <ImageView android:id="@+id/wRingSeg4" android:layout_width="0dp" android:layout_height="16dp" android:layout_weight="1" android:scaleType="fitXY" android:src="@drawable/seg_inactive" />
     </LinearLayout>
 
 </LinearLayout>

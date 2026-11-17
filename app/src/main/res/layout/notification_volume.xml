@@ -3,79 +3,82 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:padding="4dp">
+    android:paddingVertical="4dp">
 
-    <TextView
-        android:id="@+id/nTvStatus"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="4dp"
-        android:text="Media 5/15  |  Call 4/7  |  Normal"
-        android:textSize="12sp"
-        android:textStyle="bold" />
+    <!-- Media -->
+    <LinearLayout android:id="@+id/nRowMedia" android:layout_width="match_parent" android:layout_height="44dp" android:layout_marginBottom="6dp" android:gravity="center_vertical" android:orientation="horizontal">
+        <TextView android:id="@+id/nTvMedia" android:layout_width="82dp" android:layout_height="wrap_content" android:text="Media 5/15" android:textSize="13sp" android:textStyle="bold" />
+        <Button android:id="@+id/nBtnMediaDown" android:layout_width="46dp" android:layout_height="38dp" android:layout_marginEnd="10dp" android:background="@drawable/bg_notif_btn" android:minWidth="0dp" android:minHeight="0dp" android:padding="0dp" android:text="-" android:textColor="@color/notif_btn_fg" android:textSize="18sp" />
+        <ProgressBar android:id="@+id/nPbMedia" style="?android:attr/progressBarStyleHorizontal" android:layout_width="0dp" android:layout_height="8dp" android:layout_weight="1" android:progressTint="@color/notif_accent" android:progressBackgroundTint="@color/notif_track_bg" />
+        <Button android:id="@+id/nBtnMediaUp" android:layout_width="46dp" android:layout_height="38dp" android:layout_marginStart="10dp" android:background="@drawable/bg_notif_btn" android:minWidth="0dp" android:minHeight="0dp" android:padding="0dp" android:text="+" android:textColor="@color/notif_btn_fg" android:textSize="18sp" />
+    </LinearLayout>
 
+    <!-- Call -->
+    <LinearLayout android:id="@+id/nRowCall" android:layout_width="match_parent" android:layout_height="44dp" android:layout_marginBottom="6dp" android:gravity="center_vertical" android:orientation="horizontal">
+        <TextView android:id="@+id/nTvCall" android:layout_width="82dp" android:layout_height="wrap_content" android:text="Call 4/7" android:textSize="13sp" android:textStyle="bold" />
+        <Button android:id="@+id/nBtnCallDown" android:layout_width="46dp" android:layout_height="38dp" android:layout_marginEnd="10dp" android:background="@drawable/bg_notif_btn" android:minWidth="0dp" android:minHeight="0dp" android:padding="0dp" android:text="-" android:textColor="@color/notif_btn_fg" android:textSize="18sp" />
+        <ProgressBar android:id="@+id/nPbCall" style="?android:attr/progressBarStyleHorizontal" android:layout_width="0dp" android:layout_height="8dp" android:layout_weight="1" android:progressTint="@color/notif_accent" android:progressBackgroundTint="@color/notif_track_bg" />
+        <Button android:id="@+id/nBtnCallUp" android:layout_width="46dp" android:layout_height="38dp" android:layout_marginStart="10dp" android:background="@drawable/bg_notif_btn" android:minWidth="0dp" android:minHeight="0dp" android:padding="0dp" android:text="+" android:textColor="@color/notif_btn_fg" android:textSize="18sp" />
+    </LinearLayout>
+
+    <!-- Ringtone -->
+    <LinearLayout android:id="@+id/nRowRing" android:layout_width="match_parent" android:layout_height="44dp" android:layout_marginBottom="6dp" android:gravity="center_vertical" android:orientation="horizontal">
+        <TextView android:id="@+id/nTvRing" android:layout_width="82dp" android:layout_height="wrap_content" android:text="Ring 5/7" android:textSize="13sp" android:textStyle="bold" />
+        <Button android:id="@+id/nBtnRingDown" android:layout_width="46dp" android:layout_height="38dp" android:layout_marginEnd="10dp" android:background="@drawable/bg_notif_btn" android:minWidth="0dp" android:minHeight="0dp" android:padding="0dp" android:text="-" android:textColor="@color/notif_btn_fg" android:textSize="18sp" />
+        <ProgressBar android:id="@+id/nPbRing" style="?android:attr/progressBarStyleHorizontal" android:layout_width="0dp" android:layout_height="8dp" android:layout_weight="1" android:progressTint="@color/notif_accent" android:progressBackgroundTint="@color/notif_track_bg" />
+        <Button android:id="@+id/nBtnRingUp" android:layout_width="46dp" android:layout_height="38dp" android:layout_marginStart="10dp" android:background="@drawable/bg_notif_btn" android:minWidth="0dp" android:minHeight="0dp" android:padding="0dp" android:text="+" android:textColor="@color/notif_btn_fg" android:textSize="18sp" />
+    </LinearLayout>
+
+    <!-- Notifications -->
+    <LinearLayout android:id="@+id/nRowNotif" android:layout_width="match_parent" android:layout_height="44dp" android:layout_marginBottom="6dp" android:gravity="center_vertical" android:orientation="horizontal">
+        <TextView android:id="@+id/nTvNotif" android:layout_width="82dp" android:layout_height="wrap_content" android:text="Notif 5/7" android:textSize="13sp" android:textStyle="bold" />
+        <Button android:id="@+id/nBtnNotifDown" android:layout_width="46dp" android:layout_height="38dp" android:layout_marginEnd="10dp" android:background="@drawable/bg_notif_btn" android:minWidth="0dp" android:minHeight="0dp" android:padding="0dp" android:text="-" android:textColor="@color/notif_btn_fg" android:textSize="18sp" />
+        <ProgressBar android:id="@+id/nPbNotif" style="?android:attr/progressBarStyleHorizontal" android:layout_width="0dp" android:layout_height="8dp" android:layout_weight="1" android:progressTint="@color/notif_accent" android:progressBackgroundTint="@color/notif_track_bg" />
+        <Button android:id="@+id/nBtnNotifUp" android:layout_width="46dp" android:layout_height="38dp" android:layout_marginStart="10dp" android:background="@drawable/bg_notif_btn" android:minWidth="0dp" android:minHeight="0dp" android:padding="0dp" android:text="+" android:textColor="@color/notif_btn_fg" android:textSize="18sp" />
+    </LinearLayout>
+
+    <!-- Alarm -->
+    <LinearLayout android:id="@+id/nRowAlarm" android:layout_width="match_parent" android:layout_height="44dp" android:layout_marginBottom="6dp" android:gravity="center_vertical" android:orientation="horizontal">
+        <TextView android:id="@+id/nTvAlarm" android:layout_width="82dp" android:layout_height="wrap_content" android:text="Alarm 5/7" android:textSize="13sp" android:textStyle="bold" />
+        <Button android:id="@+id/nBtnAlarmDown" android:layout_width="46dp" android:layout_height="38dp" android:layout_marginEnd="10dp" android:background="@drawable/bg_notif_btn" android:minWidth="0dp" android:minHeight="0dp" android:padding="0dp" android:text="-" android:textColor="@color/notif_btn_fg" android:textSize="18sp" />
+        <ProgressBar android:id="@+id/nPbAlarm" style="?android:attr/progressBarStyleHorizontal" android:layout_width="0dp" android:layout_height="8dp" android:layout_weight="1" android:progressTint="@color/notif_accent" android:progressBackgroundTint="@color/notif_track_bg" />
+        <Button android:id="@+id/nBtnAlarmUp" android:layout_width="46dp" android:layout_height="38dp" android:layout_marginStart="10dp" android:background="@drawable/bg_notif_btn" android:minWidth="0dp" android:minHeight="0dp" android:padding="0dp" android:text="+" android:textColor="@color/notif_btn_fg" android:textSize="18sp" />
+    </LinearLayout>
+
+    <!-- Footer -->
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="36dp"
+        android:layout_marginTop="4dp"
+        android:gravity="center_vertical"
         android:orientation="horizontal">
 
         <Button
-            android:id="@+id/nBtnMediaDown"
-            android:layout_width="0dp"
-            android:layout_height="36dp"
-            android:layout_marginEnd="4dp"
-            android:layout_weight="1"
-            android:background="@drawable/bg_btn"
-            android:text="M -"
-            android:textAllCaps="false"
-            android:textColor="#FFFFFF"
-            android:textSize="12sp" />
-
-        <Button
-            android:id="@+id/nBtnMediaUp"
-            android:layout_width="0dp"
-            android:layout_height="36dp"
-            android:layout_marginEnd="4dp"
-            android:layout_weight="1"
-            android:background="@drawable/bg_btn"
-            android:text="M +"
-            android:textAllCaps="false"
-            android:textColor="#FFFFFF"
-            android:textSize="12sp" />
-
-        <Button
-            android:id="@+id/nBtnCallDown"
-            android:layout_width="0dp"
-            android:layout_height="36dp"
-            android:layout_marginEnd="4dp"
-            android:layout_weight="1"
-            android:background="@drawable/bg_btn"
-            android:text="C -"
-            android:textAllCaps="false"
-            android:textColor="#FFFFFF"
-            android:textSize="12sp" />
-
-        <Button
-            android:id="@+id/nBtnCallUp"
-            android:layout_width="0dp"
-            android:layout_height="36dp"
-            android:layout_marginEnd="4dp"
-            android:layout_weight="1"
-            android:background="@drawable/bg_btn"
-            android:text="C +"
-            android:textAllCaps="false"
-            android:textColor="#FFFFFF"
-            android:textSize="12sp" />
-
-        <Button
             android:id="@+id/nBtnMode"
-            android:layout_width="0dp"
-            android:layout_height="36dp"
-            android:layout_weight="1.1"
-            android:background="@drawable/bg_btn"
-            android:text="Mode"
+            android:layout_width="wrap_content"
+            android:layout_height="32dp"
+            android:layout_marginEnd="10dp"
+            android:background="@drawable/bg_notif_btn"
+            android:minWidth="0dp"
+            android:minHeight="0dp"
+            android:paddingHorizontal="14dp"
+            android:text="Mode: Normal"
             android:textAllCaps="false"
-            android:textColor="#64B5F6"
+            android:textColor="@color/notif_btn_fg"
+            android:textSize="12sp" />
+
+        <Button
+            android:id="@+id/nBtnAll"
+            android:layout_width="wrap_content"
+            android:layout_height="32dp"
+            android:background="@drawable/bg_notif_btn"
+            android:minWidth="0dp"
+            android:minHeight="0dp"
+            android:paddingHorizontal="14dp"
+            android:text="All Sliders"
+            android:textAllCaps="false"
+            android:textColor="@color/notif_btn_fg"
             android:textSize="12sp" />
     </LinearLayout>
+
 </LinearLayout>
